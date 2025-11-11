@@ -17,7 +17,7 @@ class Solution {
     private static final String Y = "Yes";
     private static final String N = "No";
     public static void main(String args[]) throws Exception {
-        System.setIn(new FileInputStream("res/input_for_20955.txt"));
+        System.setIn(new FileInputStream("res/D3_20955_StringXY1.txt"));
  
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
