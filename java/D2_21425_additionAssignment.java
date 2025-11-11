@@ -3,7 +3,7 @@ import java.io.FileInputStream;
 
 /* A += B 또는 B += A 연산으로 N을 초과시킬 때의 최소연산 수 */
 
-// 메모리: 31,728kb / 실행시간: 134ms / 코드길이: 591
+// 메모리: 31,728kb / 실행시간: 134ms / 코드길이: 591 
 
 class Solution
 {
