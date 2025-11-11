@@ -11,7 +11,7 @@ import java.util.HashSet;
 /* 최소동작으로 문자열 S를 E로 만들기
 동작1. S 맨뒤에 ‘X’ 추가 / 동작2. S를 뒤집고 맨뒤에 ‘Y’ 추가 */
 
-// 메모리: 94,208kb / 실행시간: 192ms / 코드길이: 2,222
+// 메모리: 94,208kb / 실행시간: 192ms / 코드길이: 2,222 
  
 class Solution {
     private static final String Y = "Yes";
