@@ -7,7 +7,7 @@ import java.io.OutputStreamWriter;
 
 /* 주어진 A에 자연수B를 곱한 결과가 거듭제곱이 되는 최소의 B */
 
-// 메모리: 49,016kb / 실행시간: 585ms / 코드길이: 1,295
+// 메모리: 49,016kb / 실행시간: 585ms / 코드길이: 1,295 
  
 class Solution {
     public static void main(String args[]) throws Exception {
