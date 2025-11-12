@@ -153,7 +153,7 @@ n에 대한 피보나치값을 출력?
 
 ---
 
-### BufferedReader
+### 1. BufferedReader
 표준입력에서 문자열 또는 문자를 추출하기 위해 사용합니다. (Scanner 대체)  
 
 주요 메서드
@@ -179,7 +179,7 @@ br.read(); // 글자단위 -> null -> -1 을 int로 반환 (위에서 첫줄을 
 br.close(); // 객체 종료
 ```
 
-### BufferedWritter  
+### 2. BufferedWritter  
 문자열을 출력하기 위해 사용합니다. (PrintStream 대체)  
 
 주요 메서드  
