@@ -151,7 +151,7 @@ n에 대한 피보나치값을 출력?
 
 ### BufferedReader & BufferedWritter / StringBuilder
 | class | BufferedReader | BufferedWritter | StringBuilder | StringTokenizer |
-|--------|----------------|-----------------|---------------|-----------------|
+|:-----:|----------------|-----------------|---------------|-----------------|
 | lib | java.io | java.io | 기본패키지 | java.util |
 | use | 파일입력 | 파일출력 | 문자열누적(한번에출력) | 입력데이터 파싱 |
 | func | 빠른 입력 버퍼 | 빠른 출력 버퍼 | 문자열 조작(결합/수정/삭제 | 문자열 분리(토큰화) |
