@@ -149,8 +149,8 @@ n에 대한 피보나치값을 출력?
 > 따라서, Scanner 처럼 메모리와 시간적 비용이 많이 드는 라이브러리를 지양하면 I/O에서 이득을 볼 수 있습니다.  
 > ※ Scanner와 PrintStream의 경우 BR BW SB에 비해 '3배~10배 가량 느리다'고 알려져 있습니다.  
 
-### BufferedReader & BufferedWritter / StringBuilder
-| class | BufferedReader | BufferedWritter | StringBuilder | StringTokenizer |
+### 주요 I/O 요약
+|  | BufferedReader | BufferedWritter | StringBuilder | StringTokenizer |
 |:-----:|----------------|-----------------|---------------|-----------------|
 | lib | java.io | java.io | 기본패키지 | java.util |
 | use | 파일입력 | 파일출력 | 문자열누적(한번에출력) | 입력데이터 파싱 |
