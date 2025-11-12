@@ -246,13 +246,13 @@ bw.write(sb.toString()); // bw에 누적
 ```
 
 ### 4. StringTokenizer
-문자열을 분리하기 위해 사용합니다
-기준문자를 기준으로 
+문자열을 분리하기 위해 사용합니다  
+기준문자를 기준으로 분리되며, 기준문자 미기입시 기본값(공백)을 기준으로 분리합니다.  
 
-주요 메서드
-1. hasMoreTokens() : 토큰이 남았는지 확인 (boolean)
-2. nextToken() : 다음 토큰 가져오기 (String)
-3. countTokens() : 남은 토큰 수 확인
+주요 메서드  
+1. hasMoreTokens() : 토큰이 남았는지 확인 (boolean)  
+2. nextToken() : 다음 토큰 가져오기 (String)  
+3. countTokens() : 남은 토큰 수 확인  
 
 ```java
 import java.util.StringTokenizer;
