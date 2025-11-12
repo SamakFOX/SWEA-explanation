@@ -142,7 +142,6 @@ n에 대한 피보나치값을 출력?
 > 
 > 따라서, Scanner 처럼 메모리와 시간적 비용이 많이 드는 라이브러리를 지양하면 I/O에서 이득을 볼 수 있습니다.  
 > ※ Scanner와 PrintStream의 경우 BR BW SB에 비해 '3배~10배 가량 느리다'고 알려져 있습니다.  
-> ※ 코드 구조를 잡을때 시간복잡도가 $$O(n^3)$$ 를 초과하지 않는지 잘 확인해주세요.  
 
 ### BufferedReader & BufferedWritter / StringBuilder
 | 클래스 | BufferedReader | BufferedWritter | StringBuilder | StringTokenizer |
@@ -174,12 +173,29 @@ SetIn 지정문은 지워주셔야 정상동작합니다.
 txt 내에 "This is SWEA"가 들어있다고 가정 */
 
 BufferedReader br = new BufferedReader(new InputStreamReader(System.in)); // br 객체 생성
-br.readLine() // 줄단위 -> "This is SWEA" 가 String으로 반환
-br.read() // 글자단위 -> null -> -1 을 int로 반환 (위에서 첫줄을 읽었으므로 EOF반환)
+br.readLine(); // 줄단위 -> "This is SWEA" 가 String으로 반환
+br.read(); // 글자단위 -> null -> -1 을 int로 반환 (위에서 첫줄을 읽었으므로 EOF반환)
+
+br.close(); // 객체 종료
 ```
 
-### BufferedWritter
-문자열을 출력하기 위해 사용합니다. (PrintStream 대체)
+### BufferedWritter  
+문자열을 출력하기 위해 사용합니다. (PrintStream 대체)  
 
-주요 메서드
-1. 
+주요 메서드  
+1. write() : 자바 내부 버퍼(8KB)에 내용을 누적  
+2. flush() : 표준출력으로 누적된 문자열을 출력  
+
+```java
+import java.io.BufferedWritter;
+import java.io.OutputStreamWritter;
+
+BufferedWritter bw = new BufferedWritter(new OutputStreamWritter(System.out)); // bw 객체 생성
+
+for(int test_case = 1; test_case <= T; test_case++) {
+ ~테스트케이스 입력 및 반복문 처리~
+ bw.write("#" + test_case + " " + simulate + "\n"); // bw에 누적
+}
+bw.flush(); // 최종 bw 내용 출력
+bw.close(); // 객체 종료
+```
