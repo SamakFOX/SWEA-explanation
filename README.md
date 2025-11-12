@@ -191,7 +191,7 @@ br.read(); // 글자단위 -> null -> -1 을 int로 반환 (위에서 첫줄을 
 br.close(); // 객체 종료
 ```
 
-### 2. BufferedWritter  
+### 2. BufferedWriter  
 문자열을 출력하기 위해 사용합니다. (PrintStream 대체)  
 
 ※ 내부 버퍼가 가득 차면 자동으로 flush되고 버퍼를 비운 후 다시 누적  
@@ -202,10 +202,10 @@ br.close(); // 객체 종료
 2. flush() : 누적된 문자열을 출력  
 
 ```java
-import java.io.BufferedWritter;
-import java.io.OutputStreamWritter;
+import java.io.BufferedWriter;
+import java.io.OutputStreamWriter;
 
-BufferedWritter bw = new BufferedWritter(new OutputStreamWritter(System.out)); // bw 객체 생성
+BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out)); // bw 객체 생성
 
 for(int test_case = 1; test_case <= T; test_case++) {
  ~테스트케이스 입력 및 반복문 처리~
@@ -245,4 +245,32 @@ sb.append("\n"); // 개행문자 수동입력(자동x)
 bw.write(sb.toString()); // bw에 누적
 ```
 
-### StringTokenizer
+### 4. StringTokenizer
+문자열을 분리하기 위해 사용합니다
+기준문자를 기준으로 
+
+주요 메서드
+1. hasMoreTokens() : 토큰이 남았는지 확인 (boolean)
+2. nextToken() : 다음 토큰 가져오기 (String)
+3. countTokens() : 남은 토큰 수 확인
+
+```java
+import java.util.StringTokenizer;
+
+int T = Integer.parseInt(br.readLine());
+for(int test_case = 1; test_case <= T; test_case++) {
+ StringTokenizer st = new StringTokenizer(br.readLine());
+ // 기본 - 스페이스 기준으로 분리 (A B N 형식인 경우)
+ StringTokenizer st = new StringTokenizer(br.readLine(), ",");
+ // 지정 - 구분자(,) 기준으로 분리 (A, B, N 형식인 경우)
+
+ int inA = Integer.parseInt(st.nextToken()); // 토큰의 String을 int로 캐스팅
+ int inB = Integer.parseInt(st.nextToken());
+ int inN = Integer.parseInt(st.nextToken());
+
+ while (st.hasMoreTokens()) {
+  int num = Integer.parseInt(st.nextToken());
+  // 토큰을 개별로 이용할 경우 마지막 토큰까지 반복문 활용
+ }
+}
+```
