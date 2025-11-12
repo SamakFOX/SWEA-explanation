@@ -9,12 +9,13 @@
 > 문제 번호와 링크만 명시하며, 코드는 본인이 작성한 풀이와 테스트케이스만 포함합니다.
 
 ### 파일명 규칙
-문제난이도_문제번호_문제명.파일형식 으로 구성되어있습니다. (txt는 테스트케이스입니다)  
+'문제난이도_문제번호_문제명.파일형식'으로 구성되어있습니다.  
+동일 이름의 txt는 테스트케이스입니다.  
 ```
 SWEA-explanation
  └─ java
-    ├─ D3_12345_BFS.java = Solution Class
-    └─ D3_12345_BFS.txt = Test Case
+    ├─ D3_12345_BFS.java
+    └─ D3_12345_BFS.txt
 ```
 - **문제 출처 : https://swexpertacademy.com/**
 ---
@@ -39,6 +40,11 @@ SWEA에서는 아래와 같이 복잡도 제한사항을 안내하고 있습니�
 ```
 다만 메모리의 경우 넉넉하게 제공되는 편이므로  
 복잡도로 Fail이 나오는 경우 시간복잡도에서 초과되는 경우가 많습니다.  
+
+```
+복잡도는 절대적이지 않습니다.
+예를들어 
+```
 &nbsp;
 
 # Core Algorithms
@@ -157,9 +163,15 @@ n에 대한 피보나치값을 출력?
 표준입력에서 문자열 또는 문자를 추출하기 위해 사용합니다. (Scanner 대체)  
 
 주요 메서드
-1. read() : 한글자단위로 읽으며, \n도 읽음. ASCII로 읽어 int로 반환  
-2. readLine() : 한줄단위로 읽으며, \n은 제외하고 읽음. String으로 반환  
-※ null을 만나면 -1 반환  
+1. read() : 한글자단위로 읽음    
+2. readLine() : 한줄단위로 읽음  
+
+|  | read() | readLine() |
+|:---:|:---:|:---:|
+| 동작방식 | 한글자 가져옴 | 한줄 가져옴 |
+| 개행문자 | 개행문자도 가져옴 | 개행문자는 빼고 가져옴 |
+| 반환형 | ASCII로 읽어 int 반환 | String 반환 |
+| 종료문자 | null을 만나면 -1 반환 | null을 만나면 -1 반환 |
 
 ```java
 import java.io.FileInputStream;
@@ -182,9 +194,12 @@ br.close(); // 객체 종료
 ### 2. BufferedWritter  
 문자열을 출력하기 위해 사용합니다. (PrintStream 대체)  
 
+※ 내부 버퍼가 가득 차면 자동으로 flush되고 버퍼를 비운 후 다시 누적  
+※ 버퍼 크기 : 8192 character = 2byte * 8192 = 16kb  
+
 주요 메서드  
-1. write() : 자바 내부 버퍼(8KB)에 내용을 누적  
-2. flush() : 표준출력으로 누적된 문자열을 출력  
+1. write() : 내부 버퍼에 내용을 누적  
+2. flush() : 누적된 문자열을 출력  
 
 ```java
 import java.io.BufferedWritter;
@@ -197,5 +212,5 @@ for(int test_case = 1; test_case <= T; test_case++) {
  bw.write("#" + test_case + " " + simulate + "\n"); // bw에 누적
 }
 bw.flush(); // 최종 bw 내용 출력
-bw.close(); // 객체 종료
+bw.close(); // flush 후 객체 종료
 ```
