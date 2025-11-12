@@ -9,7 +9,7 @@
 > 문제 번호와 링크만 명시하며, 코드는 본인이 작성한 풀이와 테스트케이스만 포함합니다.
 
 ### 파일명 규칙
-'문제난이도_문제번호_문제명.파일형식'으로 구성되어있습니다.  
+`문제난이도_문제번호_문제명.파일형식` 으로 구성되어있습니다.  
 동일 이름의 txt는 테스트케이스입니다.  
 ```
 SWEA-explanation
@@ -214,3 +214,35 @@ for(int test_case = 1; test_case <= T; test_case++) {
 bw.flush(); // 최종 bw 내용 출력
 bw.close(); // flush 후 객체 종료
 ```
+
+### 3. StringBuilder
+문자열 처리를 위해 사용합니다. (결합, 수정, 삭제)  
+
+주요 메서드  
+1. append("") : 문자열 결합  
+2. toString() : String으로 캐스팅  
+3. reverse() : 문자열 뒤집기  
+4. insert(n) : 문자열 삽입 (n번 인덱스)  
+5. delete(n, m) : 문자열 삭제 (n ~ m-1 인덱스)  
+6. deleteCharAt(n) : 문자 삭제 (n번 인덱스)  
+
+```java
+//java.lang의 기본클래스이므로 import 불필요
+
+StringBuilder sb = new StringBuilder();
+sb.append("This is").append(" SWEA"); // "This is SWEA"
+sb.insert(5, "n"); // "This nis SWEA"
+sb.replace(0, 4, "That"); // "That nis SWEA"
+sb.deleteCharAt(5); // "That is SWEA"
+sb.delete(0, 4); // " is SWEA"
+sb.reverse(); // "AEWS si "
+
+int len = sb.length(); // 8
+
+sb.append("\n"); // 개행문자 수동입력(자동x)
+// 출력형식이 개행이 필요한 경우 '\n' "\n" 상황에 따라 사용
+
+bw.write(sb.toString()); // bw에 누적
+```
+
+### StringTokenizer
