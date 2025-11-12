@@ -150,12 +150,12 @@ n에 대한 피보나치값을 출력?
 > ※ Scanner와 PrintStream의 경우 BR BW SB에 비해 '3배~10배 가량 느리다'고 알려져 있습니다.  
 
 ### BufferedReader & BufferedWritter / StringBuilder
-| 클래스 | BufferedReader | BufferedWritter | StringBuilder | StringTokenizer |
+| class | BufferedReader | BufferedWritter | StringBuilder | StringTokenizer |
 |--------|----------------|-----------------|---------------|-----------------|
-| 라이브러리 | java.io | java.io | 기본패키지 | java.util |
-| 사용시기 | 파일입력 | 파일출력 | 문자열누적(한번에출력) | 입력데이터 파싱 |
-| 주요기능 | 빠른 입력 버퍼 | 빠른 출력 버퍼 | 문자열 조작(결합/수정/삭제 | 문자열 분리(토큰화) |
-| 주요 메서드 | read(), readLine() 등 | write(), flush() 등 | append(), toString() 등 | hasMoreTokens(), nextToken() 등 |
+| lib | java.io | java.io | 기본패키지 | java.util |
+| use | 파일입력 | 파일출력 | 문자열누적(한번에출력) | 입력데이터 파싱 |
+| func | 빠른 입력 버퍼 | 빠른 출력 버퍼 | 문자열 조작(결합/수정/삭제 | 문자열 분리(토큰화) |
+| method | read(), readLine() 등 | write(), flush() 등 | append(), toString() 등 | hasMoreTokens(), nextToken() 등 |
 
 ---
 
