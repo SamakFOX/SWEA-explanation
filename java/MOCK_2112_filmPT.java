@@ -6,6 +6,9 @@ import java.io.OutputStreamWriter;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
+/* A,B 특성을 가진 셀이 W개씩 D층 쌓여있을때 필름의 내구성테스트 (열별 장력)*/
+// DFS 백트래킹 / 메모리: 94,744kb / 실행시간: 306ms / 코드길이: 1,841 
+
 public class case_2112_dfs {
 	static int count = 0;
 	static int[][] film;
