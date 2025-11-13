@@ -91,13 +91,57 @@ SWEA에서는 아래와 같이 복잡도 제한사항을 안내하고 있습니�
 | **DFS/BFS 완전탐색** | 그래프나 격자 전체 탐색 | **O(V+E)** | `미로 탐색`, `연결 요소 개수`, `단지 번호 붙이기` |
 
 ---
-
-### 1.1. 백트래킹 (Backtracking)
-- 완전탐색 내에서 '불필요한 경우'를 가지치기(Pruning)하여 탐색량을 줄이는 방식  
-
-### 1.2. BFS/DFS
+ 
+### 1.1. BFS/DFS
 - BFS (Breadth First Search) : 그래프나 트리에서 한 경로를 끝까지 탐색 후 되돌아가 탐색하는 방식  
+[  ] 반복
 - DFS (Depth First Search) : 인접한 노드부터 차례대로 탐색하는 방식  
+[ 현재 상태 선택 → 다음 상태 진입 → 더이상 진입할 수 없으면 복귀 ] 반복  
+
+| EX) 지도 내 섬 갯수 (DFS) |
+|---|
+```java
+7 7
+0 0 0 0 1 1 0
+1 1 0 1 1 1 0
+0 1 0 0 0 0 0
+0 0 0 0 0 1 1
+1 1 0 0 0 0 0
+1 1 0 1 1 1 1
+1 0 0 0 1 0 0
+
+// 섬은 네모로 보며, 대각선으로 닿은 경우 별개의 섬으로 간주 -> 5개
+
+boolean[][] visited; // 방문여부 체크용 배열
+// 순차방문이 아닐때 사용, 무조건 순차방문일땐 안써도 반복문으로 처리 가능
+
+int[] defRow = {-1, 1, 0, 0}; // X좌표(좌우)
+int[] defCol = {0, 0, -1, 1}; // Y좌표(상하)
+/* 대각선도 붙은 섬으로 볼땐
+defRow = {-1, -1, -1, 0, 0, 1, 1, 1};
+defCol = {-1, 0, 1, -1, 1, -1, 0, 1};
+후에 XY좌표 탐색 시 d < 8로 탐색 */
+
+if (map[r][c] == 1 && !visited[r][c]) {
+ dfs(r, c); // 현재 구역 전체 탐색
+ count++;   // 섬 갯수 증가
+}
+
+dfs(int row, int col) {
+ visited[row][col] = true; // 방문처리
+
+ for (int d = 0; d < 4; d++) {
+  int nRow = row + defRow[d]; // X좌표
+  int nCol = col + defCol[d]; // Y좌표
+
+  if (nRow < 0 || nRow >= N || nCol < 0 || nCol >= M) continue; // 지도범위 밖이면 다음위치 확인
+  if (map[nRow][nCol] != 1) continue; // 섬이 아닌곳(0)이면 다음위치 확인
+  if (visited[nRow][nCol]) continue; // 방문한 위치면 다음위치 확인
+
+  dfs(nRow, nCol); // XY좌표로 DFS 재귀호출
+  }
+}
+```
 
 > 주요 문제) 미로, 섬, 연결 요소  
 >  
@@ -107,6 +151,15 @@ SWEA에서는 아래와 같이 복잡도 제한사항을 안내하고 있습니�
 > dx, dy 패턴  
 > BFS는 deque, DFS는 재귀 이용  
 > 방문 여부 관리 (visited 노드 또는 배열)  
+
+### 1.2. 백트래킹 (Backtracking)
+- 완전탐색 내에서 '불필요한 경우'를 가지치기(Pruning)하여 탐색량을 줄이는 방식  
+- DFS를 사용하여 모든 경우의 수를 탐색하면서 불필요한 경우의 수를 미리 차단  
+
+| EX) 보호필름 성능테스트 (DFS+백트래킹) |
+|---|
+
+https://github.com/SamakFOX/SWEA-explanation/blob/main/java/MOCK_2112_filmPT.java [![코드 확인](https://img.shields.io/badge/코드_확인-blue?style=for-the-badge)](https://github.com/SamakFOX/SWEA-explanation/blob/main/java/MOCK_2112_filmPT.java)  
 
 ### 2. 시뮬레이션, 구현 (Simulation)  
 문제에서 '행동'이 주어지고 이를 '시뮬레이션'해야 하는 경우에 생각해보면 좋습니다.  
