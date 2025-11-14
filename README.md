@@ -119,25 +119,36 @@ int[] defCol = {0, 0, -1, 1}; // Y좌표(상하)
 
 bfs(stAxisX, stAxisY);
 
-bfs(int sRow, int sCol) {
+static boolean bfs(int sRow, int sCol) {
  Queue<int[]> q = new LinkedList<>(); // FIFO를 위해 큐 생성
 
  visited[sRow][sCol] = true; // 방문처리
  dist[sRow][sCol] = 1;   // 시작 칸도 거리 1로 카운트
- q.offer(new int[]{sRow, sCol}); // 큐에서 좌표 꺼냄
+ q.offer(new int[]{sRow, sCol}); // 큐에 시작좌표 입력
 
- for (int d = 0; d < 4; d++) { // 상하좌우로 이동
-  int nRow = row + defRow[d]; // X좌표
-  int nCol = col + defCol[d]; // Y좌표
+ while (!q.isEmpty()) { // 큐가 빌때까지 반복
+  int[] now = q.poll(); // 큐에서 좌표 꺼냄
+  int nowRow = now[0];
+  int nowCol = now[1];
 
-  if (nRow < 0 || nRow >= N || nCol < 0 || nCol >= M) continue; // 미로 범위 밖이면 다음위치 확인
-  if (map[nRow][nCol] == 1) continue; // 벽(1)이면 다음위치 확인
-  if (visited[nRow][nCol]) continue; // 방문한 위치면 다음위치 확인
-
-  visited[nr][nc] = true; // 해당 칸 방문처리
-  dist[nr][nc] = dist[r][c] + 1; // 해당 칸에 거리 + 1
-  q.offer(new int[]{nr, nc}); // 큐에 새 좌표 삽입
+  if (map[nowRow][nowCol] == 3) {  // 도착하면 종료
+   return true;
   }
+
+  for (int d = 0; d < 4; d++) { // 상하좌우로 이동
+   int nRow = row + defRow[d]; // X좌표
+   int nCol = col + defCol[d]; // Y좌표
+
+   if (nRow < 0 || nRow >= N || nCol < 0 || nCol >= M) continue; // 미로 범위 밖이면 다음위치 확인
+   if (map[nRow][nCol] == 1) continue; // 벽(1)이면 다음위치 확인
+   if (visited[nRow][nCol]) continue; // 방문한 위치면 다음위치 확인
+
+   visited[nr][nc] = true; // 해당 칸 방문처리
+   dist[nr][nc] = dist[r][c] + 1; // 해당 칸에 이동거리 + 1
+   q.offer(new int[]{nr, nc}); // 큐에 새 좌표 삽입
+  }
+ }
+ return false;
 }
 
 ```
