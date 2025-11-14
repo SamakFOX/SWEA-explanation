@@ -94,9 +94,53 @@ SWEA에서는 아래와 같이 복잡도 제한사항을 안내하고 있습니�
  
 ### 1.1. BFS/DFS
 - BFS (Breadth First Search) : 그래프나 트리에서 한 경로를 끝까지 탐색 후 되돌아가 탐색하는 방식  
-[  ] 반복
+[ 현재 상태 확인 → 다음 상태 삽입 → 다음 상태 확인 ] 반복
 - DFS (Depth First Search) : 인접한 노드부터 차례대로 탐색하는 방식  
-[ 현재 상태 선택 → 다음 상태 진입 → 더이상 진입할 수 없으면 복귀 ] 반복  
+[ 현재 상태 선택 → 다음 상태 진입 → 더이상 진입할 수 없으면 복귀 ] 반복 
+
+| EX) 미로 길찾기 (BFS) |
+|---|
+```java
+5
+01112
+00000
+11011
+00000
+11013
+/* 첫행 N은 NxN 행렬임을 나타냄
+2에서 시작해 3으로 끝나는 최단루트 */
+static int N; // 너비,높이
+static int[][] map; // 미로
+static int[][] distance; // 거리측정
+static boolean[][] visited; // 방분여부
+
+int[] defRow = {-1, 1, 0, 0}; // X좌표(좌우)
+int[] defCol = {0, 0, -1, 1}; // Y좌표(상하)
+
+bfs(stAxisX, stAxisY);
+
+bfs(int sRow, int sCol) {
+ Queue<int[]> q = new LinkedList<>(); // FIFO를 위해 큐 생성
+
+ visited[sRow][sCol] = true; // 방문처리
+ dist[sRow][sCol] = 1;   // 시작 칸도 거리 1로 카운트
+ q.offer(new int[]{sRow, sCol}); // 큐에서 좌표 꺼냄
+
+ for (int d = 0; d < 4; d++) { // 상하좌우로 이동
+  int nRow = row + defRow[d]; // X좌표
+  int nCol = col + defCol[d]; // Y좌표
+
+  if (nRow < 0 || nRow >= N || nCol < 0 || nCol >= M) continue; // 미로 범위 밖이면 다음위치 확인
+  if (map[nRow][nCol] == 1) continue; // 벽(1)이면 다음위치 확인
+  if (visited[nRow][nCol]) continue; // 방문한 위치면 다음위치 확인
+
+  visited[nr][nc] = true; // 해당 칸 방문처리
+  dist[nr][nc] = dist[r][c] + 1; // 해당 칸에 거리 + 1
+  q.offer(new int[]{nr, nc}); // 큐에 새 좌표 삽입
+  }
+}
+
+```
 
 | EX) 지도 내 섬 갯수 (DFS) |
 |---|
@@ -134,7 +178,7 @@ dfs(int row, int col) {
   int nRow = row + defRow[d]; // X좌표
   int nCol = col + defCol[d]; // Y좌표
 
-  if (nRow < 0 || nRow >= N || nCol < 0 || nCol >= M) continue; // 지도범위 밖이면 다음위치 확인
+  if (nRow < 0 || nRow >= N || nCol < 0 || nCol >= M) continue; // 지도 범위 밖이면 다음위치 확인
   if (map[nRow][nCol] != 1) continue; // 섬이 아닌곳(0)이면 다음위치 확인
   if (visited[nRow][nCol]) continue; // 방문한 위치면 다음위치 확인
 
@@ -145,8 +189,9 @@ dfs(int row, int col) {
 
 > 주요 문제) 미로, 섬, 연결 요소  
 >  
-> 2차원 배열 탐색   
-> 그래프·맵 문제 대부분에서 이용 가능  
+> 2차원 배열 탐색  
+> 그래프·맵 문제 대부분에서 이용 가능
+> '최단경로' 요구 시 BFS 추천
 > 큐/스택 기반 탐색  
 > dx, dy 패턴  
 > BFS는 deque, DFS는 재귀 이용  
