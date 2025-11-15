@@ -215,7 +215,10 @@ dfs(int row, int col) {
 | EX) 보호필름 성능테스트 (DFS+백트래킹) |
 |---|
 
-https://github.com/SamakFOX/SWEA-explanation/blob/main/java/MOCK_2112_filmPT.java [![코드 확인](https://img.shields.io/badge/코드_확인-blue?style=for-the-badge)](https://github.com/SamakFOX/SWEA-explanation/blob/main/java/MOCK_2112_filmPT.java)  
+[![코드 확인](https://img.shields.io/badge/코드_확인-blue?style=for-the-badge)](https://github.com/SamakFOX/SWEA-explanation/blob/main/java/MOCK_2112_filmPT.java)  
+https://github.com/SamakFOX/SWEA-explanation/blob/main/java/MOCK_2112_filmPT.java  
+
+---
 
 ### 2. 시뮬레이션, 구현 (Simulation)  
 문제에서 '행동'이 주어지고 이를 '시뮬레이션'해야 하는 경우에 생각해보면 좋습니다.  
@@ -225,7 +228,16 @@ https://github.com/SamakFOX/SWEA-explanation/blob/main/java/MOCK_2112_filmPT.jav
 > 
 > 대부분 코딩테스트에서 반드시 출제되는 방식  
 > '현재 위치 + 방향'을 상태로 관리  
-> 회전, 인덱스 범위, 배열 복사  
+> 회전, 인덱스 범위, 배열 복사
+
+| EX) 역방향 사다리게임 |
+|---|
+
+[![코드 확인](https://img.shields.io/badge/코드_확인-blue?style=for-the-badge)](https://github.com/SamakFOX/SWEA-explanation/blob/main/java/D4_1210_ladder1.java)  
+https://github.com/SamakFOX/SWEA-explanation/blob/main/java/D4_1210_ladder1.java  
+* 해당 코드에선 사다리 좌우이동 시간을 줄여 빠르게 구현하려 하였으나  
+정석대로 1을 계속 따라가도록 구현하면 코드가 더 줄어들 수 있습니다.
+---
 
 ### 3. 그리디 (Greedy)  
 '최소/최적/구간' 등 선택이 필요한 경우 생각해보면 좋습니다.  
@@ -244,6 +256,7 @@ https://github.com/SamakFOX/SWEA-explanation/blob/main/java/MOCK_2112_filmPT.jav
 -> 2. 반복문을 통해 가장 큰 금액의 동전부터 연산  
 -> 3. 갯수 카운트  
 ```
+---
 
 ### 4. 동적 프로그래밍 (Dynamic Programming : DP)  
 주어진 문제를 '나눠서 처리'해야 하는 경우 생각해보면 좋습니다.  
@@ -260,6 +273,7 @@ n에 대한 피보나치값을 출력?
 ※ 피보나치(n!)는 n~1을 모두 더한 값  
 -> 반복문 이용 결과를 더함 (2~n+1)  
 ```
+---
 
 ### 5. 그래프 (Graph)  
 
@@ -315,6 +329,7 @@ br.read(); // 글자단위 -> null -> -1 을 int로 반환 (위에서 첫줄을 
 br.close(); // 객체 종료
 ```
 
+---
 ### 2. BufferedWriter  
 문자열을 출력하기 위해 사용합니다. (PrintStream 대체)  
 
@@ -338,6 +353,7 @@ for(int test_case = 1; test_case <= T; test_case++) {
 bw.flush(); // 최종 bw 내용 출력
 bw.close(); // flush 후 객체 종료
 ```
+---
 
 ### 3. StringBuilder
 문자열 처리를 위해 사용합니다. (결합, 수정, 삭제)  
@@ -368,6 +384,7 @@ sb.append("\n"); // 개행문자 수동입력(자동x)
 
 bw.write(sb.toString()); // bw에 누적
 ```
+---
 
 ### 4. StringTokenizer
 문자열을 분리하기 위해 사용합니다  
