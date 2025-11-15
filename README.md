@@ -232,6 +232,14 @@ https://github.com/SamakFOX/SWEA-explanation/blob/main/java/MOCK_2112_filmPT.jav
 
 | EX) 역방향 사다리게임 |
 |---|
+```
+100x100 크기의 사다리게임의 당첨자를 미리 알 수 있는 방법
+※ 도착지 정보를 통해 되돌아가며 좌우로 '사다리타기'를 시뮬레이션
+-> 1. 마지막위치 확인
+-> 2. 위로 올라가며 사다리가 연결되었는지 확인
+-> 3. 연결된 방향으로 이동
+-> 4. 출발점에 도착하면 최종 위치 출력
+```
 
 [![코드 확인](https://img.shields.io/badge/코드_확인-blue?style=for-the-badge)](https://github.com/SamakFOX/SWEA-explanation/blob/main/java/D4_1210_ladder1.java)  
 https://github.com/SamakFOX/SWEA-explanation/blob/main/java/D4_1210_ladder1.java  
