@@ -457,6 +457,10 @@ char[] arr = line.toCharArray();
 line = "A01B102C123"
 if (ch >= '0' && ch <= '9') {} // 조건분기 추가
 
+line = "A  B\tC D   E"
+String[] arr = line.split("\\s+");
+// 코테에선 이렇게 정규식 기반으로 파싱할때만 사용
+
 line = "NH)123456-78-901234"
 line.replace("NH", "KB"); // 문자열 교체
 substring(3); // = substring(3, line.length()) 필요부분만 자르기
