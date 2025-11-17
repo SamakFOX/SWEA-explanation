@@ -439,3 +439,28 @@ for(int test_case = 1; test_case <= T; test_case++) {
  }
 }
 ```
+
+---
+
+### 4. String 라이브러리 이용 (TC파싱)
+
+```java
+line = "100100001101100011" // 숫자로만 구성
+int num = line.charAt(i) - '0';
+// String 라이브러리의 Character 클래스는 ASCII를 이용하기 때문에 '0'(int 48)을 빼줘야 정상 숫자로 사용 가능
+
+line = "ADSFESQIJTIDSLJGKL" // 문자로만 구성
+char ch = line.charAt(i);
+char[] arr = line.toCharArray();
+// 어레이로 전환하는 메서드는 특별히 배열을 추가로 사용해야하는게 아니면 메모리 손해
+
+line = "A01B102C123"
+if (ch >= '0' && ch <= '9') {} // 조건분기 추가
+
+line = "NH)123456-78-901234"
+line.replace("NH", "KB"); // 문자열 교체
+substring(3); // = substring(3, line.length()) 필요부분만 자르기
+// String  = length(), Map/List/Set = size()
+```
+
+---
