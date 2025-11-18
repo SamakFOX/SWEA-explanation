@@ -1,6 +1,9 @@
 import java.io.*;
 import java.util.*;
 
+// 게임이론 / AI도움을 받아 로직을 (시뮬레이션->게임이론)으로 교체하였으므로 SWEA 미제출
+// TC로 출력 시 BAABAB 출력되어야 함
+
 public class case_25471_game {
 	static Character result;
 	static int turn;
