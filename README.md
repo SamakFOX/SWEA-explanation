@@ -403,6 +403,8 @@ static boolean bfs(int sRow, int sCol) {
 
 | EX) 지도 내 섬 갯수 (DFS) |
 |---|
+
+![DFSIslandEX1](https://github.com/SamakFOX/SWEA-explanation/blob/main/exampleImages/DFSIslandEX1.png)
 ```java
 7 7
 0 0 0 0 1 1 0
@@ -565,10 +567,11 @@ n에 대한 피보나치값을 출력?
 > 
 > 리스트(ArrayList) 사용 : 최단거리 관리  
 > 우선순위 큐(PriorityQueue) 사용 : 각 노드의 정점과 간선을 큐에서 관리  
+> -> 가장 우선순위가 높은 데이터가 먼저 추출  
 
 | EX) A-F 최단거리 |
 |---|
-
+ 
 ![DijkstraEX1](https://github.com/SamakFOX/SWEA-explanation/blob/main/exampleImages/DijkstraEX1.png)
 
 | 노드 | 초기 | A선택 | D선택 | B선택 | E선택 | C선택 | F선택 |
@@ -581,7 +584,73 @@ n에 대한 피보나치값을 출력?
 | F | ∞ | ∞ | ∞ | ∞ | 4(2+2) | 4 | 4 |
 
 > 최단거리 순서 : A, D, B, E, C, F  
-> 최단루트 : A → D → E → F  
+> 최단루트 : A → D → E → F
+```java
+class Node implements Comparable<Node> {
+    int to, cost;
+    Node(int to, int cost) {
+        this.to = to;
+        this.cost = cost;
+    }
+    // pq.poll() 판단기준 재정의
+    @Override
+    public int compareTo(Node o) {
+        return this.cost - o.cost; // cost 작은순서, o.cost - this.cost; cost 큰순서
+    }
+}
+
+public class Solution {
+    static final int INF = Integer.MAX_VALUE;
+    static ArrayList<ArrayList<Node>> graph = new ArrayList<>(); // 인덱싱을 위해 ArrayList 사용
+    static int[] dist;
+
+    public static void main(String[] args) throws Exception {
+        /* ~ 기본데이터 파싱 생략 ~ */
+        // 기본데이터 초기화
+        dist = new int[V + 1]; // 노드별 거리(가중치)
+        Arrays.fill(dist, INF);
+        // 노드 그래프 초기화
+        for (int i = 0; i <= V; i++) {
+            graph.add(new ArrayList<>());
+        }
+        // 그래프 데이터 파싱
+        for (int i = 0; i < E; i++) {
+            st = new StringTokenizer(br.readLine());
+            int from = Integer.parseInt(st.nextToken());
+            int to = Integer.parseInt(st.nextToken());
+            int cost = Integer.parseInt(st.nextToken());
+            graph.get(from).add(new Node(to, cost));
+        }
+        // 점화식
+        dijkstra(stAxis);
+        /* ~ 출력문 생략 ~ */
+    }
+
+    static void dijkstra(int stAxis) {
+        PriorityQueue<Node> pq = new PriorityQueue<>();
+        dist[stAxis] = 0;
+        parent[stAxis] = 0; // 시작점은 부모 없음 표시
+        pq.add(new Node(stAxis, 0));
+
+        while (!pq.isEmpty()) {
+            Node cur = pq.poll(); // cost가 적은 노드 꺼냄
+            int now = cur.to;
+            int nowCost = cur.cost;
+
+            if (dist[now] < nowCost) continue;
+
+            for (Node next : graph.get(now)) {
+                int cost = nowCost + next.cost;
+                if (cost < dist[next.to]) {
+                    dist[next.to] = cost;
+                    parent[next.to] = now;
+                    pq.add(new Node(next.to, cost));
+                }
+            }
+        }
+    }
+}
+```
 
 ### 5.2. 벨만포드 (Bellman-Ford)
 그래프에서 한 정점(시작점)으로부터 모든 정점까지의 최단 거리를 구하기 위해 사용  
