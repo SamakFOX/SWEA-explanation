@@ -595,7 +595,7 @@ class Node implements Comparable<Node> {
     // pq.poll() 판단기준 재정의
     @Override
     public int compareTo(Node o) {
-        return this.cost - o.cost; // cost 작은순서, o.cost - this.cost; cost 큰순서
+        return this.cost - o.cost; 
     }
 }
 
@@ -651,6 +651,14 @@ public class Solution {
     }
 }
 ```
+> compareTo(Node o)의 판단기준  
+> 반환값은 음수, 0, 양수 3가지중 하나  
+> return이 음수면 this가 우선, 0이면 동일순위, 양수면 o가 우선  
+> 
+> this.cost - o.cost; // cost 작은 순서  
+> 매 판단 시 <현재cost - 노드cost> this가 더 크다면 음수가 됨 ex) this=5, o=10, 5-10=-5  
+> o.cost - this.cost; // cost 큰 순서  
+> 매 판단 시 <노드cost - 현재cost> this가 더 크다면 양수가 됨 ex) this=5, o=10, 10-5=5  
 
 ### 5.2. 벨만포드 (Bellman-Ford)
 그래프에서 한 정점(시작점)으로부터 모든 정점까지의 최단 거리를 구하기 위해 사용  
