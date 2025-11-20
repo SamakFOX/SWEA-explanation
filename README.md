@@ -82,8 +82,8 @@ while(n % k == 0) n /= k
 &nbsp;
 
 # 라이브러리 메서드
-### 01. String
-기본라이브러리
+### 01. String (문자열)
+기본라이브러리  
 
 | 메서드 | 해석 | 반환형 |
 |---|---|---|
@@ -100,7 +100,7 @@ while(n % k == 0) n /= k
 ---
 
 ### 02. Math
-import java.lang.Math;
+import java.lang.Math;  
 
 | 메서드 | 해석 | 반환형 |
 |---|---|---|
@@ -115,8 +115,8 @@ import java.lang.Math;
 
 ---
 
-### 03. Number / Character
-기본 라이브러리
+### 03. Number / Character (숫자/문자)
+기본 라이브러리  
 
 | 메서드 | 해석 | 반환형 |
 |---|---|---|
@@ -131,8 +131,8 @@ import java.lang.Math;
 
 ---
 
-### 04. Arrays
-import java.util.Arrays;
+### 04. Arrays (배열)
+import java.util.Arrays;  
 
 | 메서드 | 해석 | 반환형 |
 |---|---|---|
@@ -143,14 +143,20 @@ import java.util.Arrays;
 ---
 
 ### 05. Collections / List
+기본 개념  
+인터페이스에 구현체를 담아 생성  
+구현체는 ArrayList, LinkedList  
+
+List<자료형> 변수명 = new ArrayList<>();  
+List<자료형> 변수명 = new LinkedList<>();  
+ArrayList<자료형> 변수명 = new ArrayList<>();  
+```java
 import java.util.ArrayList;
 
-생성 : new ArrayList<>();
-```java
 ArrayList<Integer> arrayList = new ArrayList<>(); // 리스트 { 1, 5, 10 }
 ArrayList<Integer[]> arrayList = new ArrayList<>(); // 배열 리스트 { [1,2], [3,4], [7,8,9] }
 ArrayList<List<Integer>> arrayList = new ArrayList<>(); // 리스트 내 리스트
-ArrayList<Node>  arrayList = new ArrayList<>(); // 구조체(클래스) 리스트
+ArrayList<Node> arrayList = new ArrayList<>(); // 구조체(클래스) 리스트
 ```
 
 | 메서드 | 해석 |
@@ -163,6 +169,138 @@ ArrayList<Node>  arrayList = new ArrayList<>(); // 구조체(클래스) 리스�
 | clear() | 리스트 초기화 |
 | Collections.sort(list) | 정렬 (오름차순) |
 | Collections.sort(list,reverseOrder()) | 정렬 (내림차순) |
+
+---
+
+### 06. Queue(큐) / Stack(스택) / Deque(덱)
+기본 개념  
+인터페이스에 구현체를 담아 생성  
+> 즉, 인터페이스 = new 구현체; 방식으로 생성되고  
+> 구현체로는 LinkedList, Stack, ArrayDeque가 있음  
+> LinkedList : 포인터 구조 - 상대적으로 메모리 소모가 크고 시간이 느림  
+> Stack : 동기화 오버헤드로 시간이 느림  
+> ArrayDeque : 중간삽입/삭제 불가능, null값 사용불가  
+
+| 이름 | 구조 | 특징 | 사용예시 |
+|:---:|:---:|---|---|
+| **Queue** | FIFO | 선입선출 | BFS, 작업 대기열, 시뮬레이션 등 |
+| **Deque** | DEQ | 앞뒤로 입출력 (스택 대체) | 슬라이딩 윈도우, 0-1 BFS, 회전 큐 |
+| **Stack** | LIFO | 후입선출 | 괄호 검사, DFS, 되돌리기(undo), 수식 계산 |
+
+공통 메서드  
+| 메서드 | 해석 |
+|---|---|
+| .isEmpty(); | 비었는지 확인 |
+| .size(); | 크기 확인 |
+| .clear(); | 초기화 |
+| .contains(x); | x 포함여부 확인 |
+
+### 6.1. Queue (큐)
+선입선출식 자료구조  
+Queue<자료형> 변수명 = new LinkedList<>();   
+Queue<자료형> 변수명 = new ArrayDeque<>(); -> 구현체를 ArrayDeque로 하면 성능상 이점이 더 많음
+```java
+import java.util.Queue;
+import java.util.LinkedList;
+
+Queue<Integer> q = new LinkedList<>();
+```
+| 메서드 | 해석 |
+|---|---|
+| q.offer(x); | 뒤에 추가 |
+| q.poll(); | 앞에서 꺼내고 제거 |
+| q.peek(); | 앞 값 확인 |
+
+### 6.2. Stack (스택)
+후입선출식 자료구조  
+Stack<자료형> 변수명 = new Stack<>();
+```java
+import java.util.Stack;
+
+Stack<Integer> st = new Stack<>();
+```
+| 메서드 | 해석 |
+|---|---|
+| push(x) | 뒤에 추가 |
+| pop() | 앞에서 꺼내고 제거 |
+| peek() | 앞 값 확인 |
+| empty() | 비었으면 true |
+| search(x) | 위에서부터 1-base index, 없으면 -1 |
+
+### 6.3. Deque (덱)
+양쪽으로 자료 입출력이 가능한 자료구조  
+Queue와 Stack의 동작을 모두 Deque에서 구현할 수 있으므로 제일 추천됨  
+Deque<자료형> 변수명 = new ArrayDeque<>();  
+```java
+import java.util.Deque;
+import java.util.ArrayDeque;
+
+Deque<Integer> dq = new ArrayDeque<>();
+```
+| 메서드 | 해석 |
+|---|---|
+| dq.addLast(x); | 뒤에 추가 |
+| dq.addFirst(x); | 앞에 추가 |
+| dq.pollFirst(); | 앞에서 꺼내고 제거 |
+| dq.pollLast(); | 뒤에서 꺼내고 제거 |
+| dq.peekFirst(); | 앞 값 확인 |
+| dq.peekLast(); | 뒤 값 확인 |
+| dq.push(x); | 뒤에 추가 |
+| dq.pop(); | 앞에서 꺼내고 제거 |
+| dq.peek(); | 앞 값 확인 |
+
+---
+
+### 07. Map / Set
+
+| 자료구조 | 저장 형태 | 중복 | 자료 순서 |
+|:---:|---|:---:|:---:|
+| **Set** |값(value)만 | X | X |
+| **Map** | (Key, Value) 매핑 | Key만 중복 X | X |
+
+### 7.1. Set
+중복없이 값을 저장할때 사용  
+Set<자료형> 변수명 = new HashSet<>();  
+```java
+import java.util.Set;
+import java.util.HashSet;
+
+Set<Integer> set = new HashSet<>();
+set.add(10);
+set.add(20);
+set.add(10); // 중복불가로 입력 X
+```
+| 메서드 | 해석 |
+|---|---|
+| add(x) | x 추가 |
+| remove(x) | x 제거 |
+| contains(x) | x 포함 여부 |
+| size() | 크기(원소 개수) 확인 |
+| isEmpty() | 비었는지 확인 |
+| clear() | 초기화 |
+
+### 7.2. Map
+중복없이 값을 저장할때 사용  
+Map<자료형, 자료형> 변수명 = new HashMap<>();  
+```java
+import java.util.Map;
+import java.util.HashMap;
+
+Map<String, Integer> map = new HashMap<>();
+map.put("apple", 3);
+map.put("banana", 5);
+map.put("apple", 10); // 키 중복으로 기존 밸류에 덮어씌워짐
+```
+| 메서드 | 해석 |
+|---|---|
+| put(k, v) | 키-밸류 쌍 저장 |
+| get(k) | k키의 밸류 |
+| getOrDefault(k, default) | k키가 없을 경우 default 반환 |
+| containsKey(k) | k키 존재 여부 |
+| remove(k) | k키 데이터 삭제 |
+| keySet() | key 리스팅 |
+| values() | value 리스팅 |
+| entrySet() | key-value 전체 리스팅 |
 
 ---
 
