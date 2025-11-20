@@ -115,8 +115,56 @@ import java.lang.Math;
 
 ---
 
-### 03. Arrays
-import java.util.Arrays
+### 03. Number / Character
+기본 라이브러리
+
+| 메서드 | 해석 | 반환형 |
+|---|---|---|
+| Integer.parseInt(s) | s를 int로 파싱 | int |
+| Long.parseLong(s) | s를 long으로 파싱 | long |
+| Integer.parseInt(s, base) | s를 base진법으로 변환 | int |
+| Character.isDigit(c) | c가 숫자형이면 true | boolean |
+| Character.isUpperCase(c) | c가 대문자면 true | boolean |
+| Character.isLowerCase(c) | c가 소문자면 true | boolean |
+| .toUpperCase(c or s) | c나 s를 대문자로 변환 | char, String |
+| .toLowerCase(c or s) | c나 s를 소문자로 변환 | char, String |
+
+---
+
+### 04. Arrays
+import java.util.Arrays;
+
+| 메서드 | 해석 | 반환형 |
+|---|---|---|
+| Arrays.sort(arr) | arr 배열 정렬 기본:오름차순 | |
+| Arrays.fill(arr, v) | arr 배열을 v로 채우기 | |
+| Arrays.toString(arr) | arr 배열을 String으로 변환 | String |
+
+---
+
+### 05. Collections / List
+import java.util.ArrayList;
+
+생성 : new ArrayList<>();
+```java
+ArrayList<Integer> arrayList = new ArrayList<>(); // 리스트 { 1, 5, 10 }
+ArrayList<Integer[]> arrayList = new ArrayList<>(); // 배열 리스트 { [1,2], [3,4], [7,8,9] }
+ArrayList<List<Integer>> arrayList = new ArrayList<>(); // 리스트 내 리스트
+ArrayList<Node>  arrayList = new ArrayList<>(); // 구조체(클래스) 리스트
+```
+
+| 메서드 | 해석 |
+|---|---|
+| add(x) | 리스트에 x 삽입 |
+| get(i) | i번째 데이터 로드 |
+| set(i, x) | i번째 데이터에 x 삽입 |
+| remove(i) | i번째 데이터 삭제 |
+| size() | 리스트 크기 확인 |
+| clear() | 리스트 초기화 |
+| Collections.sort(list) | 정렬 (오름차순) |
+| Collections.sort(list,reverseOrder()) | 정렬 (내림차순) |
+
+---
 
 &nbsp;
 
