@@ -136,7 +136,7 @@ import java.util.Arrays;
 
 | 메서드 | 해석 | 반환형 |
 |---|---|---|
-| Arrays.sort(arr) | arr 배열 정렬 기본:오름차순 | |
+| Arrays.sort(arr) | arr 배열 정렬 (오름차순) | |
 | Arrays.fill(arr, v) | arr 배열을 v로 채우기 | |
 | Arrays.toString(arr) | arr 배열을 String으로 변환 | String |
 
