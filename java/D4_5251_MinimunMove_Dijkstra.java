@@ -1,6 +1,10 @@
 import java.io.*;
 import java.util.*;
 
+/* 그래프 도착 최단거리 */
+// 다익스트라 / 파이썬 전용문제입니다 (SWEA 테스트 불가능)
+// TC 출력시 1 6 6 5 7 8 7 8 8 5 출력되면 성공
+
 public class A_Dijkstra {
 	static class Node implements Comparable<Node> {
 		int to, cost;
