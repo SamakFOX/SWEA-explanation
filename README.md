@@ -652,13 +652,15 @@ public class Solution {
 }
 ```
 > compareTo(Node o)의 판단기준  
+> poll을 호출하면 호출 전 내부적으로 A.compareTo(C), D.compareTo(A) ··· 과정이 진행되는데  
+> 이 때 A.compareTo(C) 라면 A가 this, C가 o가 됨  
 > 반환값은 음수, 0, 양수 3가지중 하나  
 > return이 음수면 this가 우선, 0이면 동일순위, 양수면 o가 우선  
 > 
 > this.cost - o.cost; // cost 작은 순서  
-> 매 판단 시 <현재cost - 노드cost> this가 더 크다면 음수가 됨 ex) this=5, o=10, 5-10=-5  
+> 매 판단 시 <현재cost - 비교cost> this가 더 크다면 음수가 됨 ex) this=5, o=10, 5-10=-5  
 > o.cost - this.cost; // cost 큰 순서  
-> 매 판단 시 <노드cost - 현재cost> this가 더 크다면 양수가 됨 ex) this=5, o=10, 10-5=5  
+> 매 판단 시 <비교cost - 현재cost> this가 더 크다면 양수가 됨 ex) this=5, o=10, 10-5=5  
 
 ### 5.2. 벨만포드 (Bellman-Ford)
 그래프에서 한 정점(시작점)으로부터 모든 정점까지의 최단 거리를 구하기 위해 사용합니다.    
