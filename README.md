@@ -466,6 +466,12 @@ dfs(int row, int col) {
 [![코드 확인](https://img.shields.io/badge/코드_확인-blue?style=for-the-badge)](https://github.com/SamakFOX/SWEA-explanation/blob/main/java/MOCK_2112_filmPT.java)  
 https://github.com/SamakFOX/SWEA-explanation/blob/main/java/MOCK_2112_filmPT.java  
 
+| EX) NQueen 배치 (DFS+백트래킹) |
+|---|
+
+[![코드 확인](https://img.shields.io/badge/코드_확인-blue?style=for-the-badge)](https://github.com/SamakFOX/SWEA-explanation/blob/main/java/D3_2806_NQueen_dfs.java)  
+https://github.com/SamakFOX/SWEA-explanation/blob/main/java/D3_2806_NQueen_dfs.java  
+
 ---
 
 ### 2. 시뮬레이션, 구현 (Simulation)  
