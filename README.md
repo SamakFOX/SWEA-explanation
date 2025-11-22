@@ -662,6 +662,9 @@ public class Solution {
 > o.cost - this.cost; // cost 큰 순서  
 > 매 판단 시 <비교cost - 현재cost> this가 더 크다면 양수가 됨 ex) this=5, o=10, 10-5=5  
 
+[![코드 확인](https://img.shields.io/badge/코드_확인-blue?style=for-the-badge)](https://github.com/SamakFOX/SWEA-explanation/blob/main/java/D4_5251_MinimunMove_Dijkstra.java)  
+https://github.com/SamakFOX/SWEA-explanation/blob/main/java/D4_5251_MinimunMove_Dijkstra.java
+
 ### 5.2. 벨만포드 (Bellman-Ford)
 그래프에서 한 정점(시작점)으로부터 모든 정점까지의 최단 거리를 구하기 위해 사용합니다.    
 간선 가중치에 음수가 있을 때 사용 가능합니다.  
