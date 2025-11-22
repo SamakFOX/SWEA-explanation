@@ -222,8 +222,8 @@ Stack<Integer> st = new Stack<>();
 | 메서드 | 해석 |
 |---|---|
 | push(x) | 뒤에 추가 |
-| pop() | 앞에서 꺼내고 제거 |
-| peek() | 앞 값 확인 |
+| pop() | 뒤에서 꺼내고 제거 |
+| peek() | 뒤 값 확인 |
 | empty() | 비었으면 true |
 | search(x) | 위에서부터 1-base index, 없으면 -1 |
 
