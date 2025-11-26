@@ -11,11 +11,9 @@
 ### 파일명 규칙
 `문제난이도_문제번호_문제명.파일형식` 으로 구성되어있습니다.  
 동일 이름의 txt는 테스트케이스입니다.  
-```
-SWEA-explanation
- └─ java
-    ├─ D3_12345_BFS.java
-    └─ D3_12345_BFS.txt
+```css
+SWEA-explanation\java\D3_12345_BFS.java
+SWEA-explanation\java\D3_12345_BFS.txt
 ```
 - **문제 출처 : https://swexpertacademy.com/**
 ---
